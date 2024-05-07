@@ -68,6 +68,7 @@ import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscrip
 import { CompanyTicketDetailsComponent } from '../CompanyAdmin/company-ticket-details/company-ticket-details.component';
 import { AdminChangePasswordComponent } from './Super-Admin/admin-change-password/admin-change-password.component';
 import { EmployeeChangePasswordComponent } from './Employee/employee-change-password/employee-change-password.component';
+import { UserEmployeeComponent } from './user-employee/user-employee.component';
 
 
 
@@ -125,6 +126,7 @@ import { EmployeeChangePasswordComponent } from './Employee/employee-change-pass
     CompanyTicketDetailsComponent,
     AdminChangePasswordComponent,
     EmployeeChangePasswordComponent,
+    UserEmployeeComponent,
 
   ],
   imports: [

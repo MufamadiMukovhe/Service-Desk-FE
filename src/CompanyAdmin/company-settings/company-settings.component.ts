@@ -181,11 +181,14 @@ confirmDeactivation() {
       this.loading = false;
       this.isConfirmingDeactivation = false; 
 
-      this.closeDropdown();
-
-      
+      this.closeDropdown()
       this.buttonText = 'Enable';
   }, 2000); 
+}
+
+addVisible: boolean = false;
+toggleAddForms() {
+  this.addVisible = !this.addVisible;
 }
 
 confirmDeactivation2() {

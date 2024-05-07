@@ -46,7 +46,6 @@
     
     
     form input,
-    
     select {
       background: white;
       border: none;
@@ -227,9 +226,6 @@
     width: 800px;
   }
 
-
-  
-    
     select {
       padding: 6px;
       height: 40px;

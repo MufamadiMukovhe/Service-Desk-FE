@@ -163,116 +163,6 @@
 
           <!--Add User/Employee form-->
 
-          <form [formGroup]="add_user_form" *ngIf="currentForm === 'form7'" >
-            <h6 class="card-title">Add Agent/Employee</h6>
-            <hr class="form-hr">
-               
-            <fieldset>
-          <!--
-              <label for="fullName" >Full Name</label>
-              <input type="text" id="fullName" name="fullName" formControlName="fullName" placeholder="">
-              <div
-              *ngIf="add['fullName'].invalid && (add['fullName'].dirty || add['fullName'].touched)"
-              class="alert alert-danger" >
-              <span *ngIf="add['fullName'].errors?.['required']" >Full name is required</span>
-              <span *ngIf="add['fullName'].errors?.['containsNumbers']" >Please enter valid Full name</span>
-
-               </div>-->
-               <label for="firstName" >First Name</label>
-               <input type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="">
-               <div
-               *ngIf="add['firstName'].invalid && (add['firstName'].dirty || add['firstName'].touched)"
-               class="alert alert-danger" >
-               <span *ngIf="add['firstName'].errors?.['required']" >First name is required</span>
-               <span *ngIf="add['firstName'].errors?.['containsNumbers']" >Please enter valid First name</span>
-                </div>
-
-                <label for="lastName" >Last Name</label>
-                <input type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="">
-                <div
-                *ngIf="add['lastName'].invalid && (add['lastName'].dirty || add['lastName'].touched)"
-                class="alert alert-danger" >
-                <span *ngIf="add['lastName'].errors?.['required']" >Last name is required</span>
-                <span *ngIf="add['lastName'].errors?.['containsNumbers']" >Please enter valid Last name</span>
-                 </div>
-
-                
-               <label for="designation" class="input-fields">Designation</label>
-               <select formControlName="designation" >
-                <option value="employee" class="option-status"> Employee </option>
-                <option value="agent"> Agent </option>
-            </select>
-
-            <div
-            *ngIf="add['designation'].invalid && (add['designation'].dirty || add['designation'].touched)"
-            class="alert alert-danger">
-            <span *ngIf="add['designation'].errors?.['required']" >Please select designation</span>
-             </div>
-
-
-               <label for="email" class="input-fields">Email</label>
-              <input type="email" id="mail" name="user_email" formControlName="email" placeholder="">
-              <div
-              *ngIf="add['email'].invalid && (add['email'].dirty || add['email'].touched)"
-              class="alert alert-danger">
-              <span *ngIf="add['email'].errors?.['required']" >Email is required</span>
-              <span *ngIf="add['email'].errors?.['email']">Please enter valid email</span>
-               </div>
-              
-
-                <label for="phone_number" class="input-fields">Phone Number</label>
-               <input type="text" id="phone_number" name="phone_number" formControlName="phone_number">
-               <div
-               *ngIf="add['phone_number'].invalid && (add['phone_number'].dirty || add['phone_number'].touched)"
-               class="alert alert-danger">
-               <span *ngIf="add['phone_number'].errors?.['required']">Phone Number is required</span>
-               <span *ngIf="add['phone_number'].errors?.['pattern']">Invalid phone number</span>
-
-                </div>
-                
-                <label for="position" >Position</label>
-                <input type="text" id="position" name="position" formControlName="position" placeholder="">
-                <div
-                *ngIf="add['position'].invalid && (add['position'].dirty || add['position'].touched)"
-                class="alert alert-danger" >
-                <span *ngIf="add['position'].errors?.['required']" >Position is required</span>
-                 </div>
-
-                <!--
-                    <label for="status" class="input-fields">Status</label>
-        
-                    <select formControlName="status" >
-                        <option value="active-status" class="option-status"> active </option>
-                        <option value="not-active"> active </option>
-                        <option value="not-active"> active </option>
-                    </select>
-        
-                    <div
-                    *ngIf="add['status'].invalid && (add['status'].dirty || add['status'].touched)"
-                    class="alert alert-danger">
-                    <span *ngIf="add['status'].errors?.['required']" >Please select status</span>
-                     </div>-->
-
-                <!--<input type="file" #fileInput style="display: none" (change)="onFileSelected($event)">
-                <button type="button" class="attachButton" (click)="fileInput.click()">Attach Image</button>-->
-                
-            </fieldset>
-            
-             
-           
-            <button type="submit" class="nextButton" [disabled]="add_user_form.invalid || showSpinner" (click)="addUsers()">
-              <span *ngIf="!showSpinner"> Add User</span>
-              <div *ngIf="showSpinner" class="spinner"></div>
-            </button>
-            
-            
-        </form>
-
-
-        
-
-
-
           
                  <!--Privacy-->
                  <div *ngIf="currentForm === 'form4'">
@@ -317,12 +207,13 @@
                               </label>
                           </div>
                       </li>
-                        <li class="form-li">
-                            <button class="addButton" (click)="toggleForms('form7')">
-                                <img src="../../../assets/images/UserPlus.svg">                      
-                                
-                                Add</button>
-                        </li>
+                      <li class="form-li">
+                        <button class="addButton" (click)="toggleAddForms()">
+                            <img src="../../../assets/images/UserPlus.svg">                      
+                            Add
+                        </button>
+                    </li>
+                    <app-user-employee *ngIf="addVisible" (close)="addVisible = false"></app-user-employee>
              
                       </ul>
                     </nav>
@@ -514,15 +405,14 @@
                   </li>
                   
                   
-                    <li class="form-li">
-                     
-
-                        <button class="addButton" (click)="toggleForms('form7')">
-                            <img src="../../../assets/images/UserPlus.svg">                      
-                            
-                            Add</button>
-                    </li>
-         
+                  <li class="form-li">
+                    <button class="addButton" (click)="toggleAddForms()">
+                        <img src="../../../assets/images/UserPlus.svg">                      
+                        Add
+                    </button>
+                </li>
+                <app-user-employee *ngIf="addVisible" (close)="addVisible = false"></app-user-employee>
+                
                   </ul>
                 </nav>
 
