@@ -59,14 +59,21 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
 
   saveChanges() {
     if (this.add_user_form.valid) {
-        this.showSpinner = true;
-
-        setTimeout(() => {
-            this.showSpinner = false;
-            this.successMessage = 'User added successfully.';
-        }, 5000);
+      this.showSpinner = true;
+  
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.successMessage = 'User added successfully.';
+        this.add_user_form.reset();
+      }, 5000); 
     }
-}
+  }
+
+  //Closing the window
+  closeWindow() {
+    this.close.emit();
+  }
+  
 
 
   get add (){return this.add_user_form.controls;}
