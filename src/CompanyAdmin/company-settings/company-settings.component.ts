@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+=======
+import { Component, OnInit, HostListener, ElementRef  } from '@angular/core';
+>>>>>>> 5b99026682f8dfc00bc51cd28ec78c43cf119e7d
 import { FormControl, FormGroup, Validators,FormBuilder, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/utility/services/auth.service';
@@ -240,6 +244,18 @@ toggleAddForms() {
   this.addVisible = !this.addVisible;
 }
 
+<<<<<<< HEAD
+=======
+//Closing the form if the user press at any other part of the page
+@HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+        const target = event.target as HTMLElement;
+    if (!target.closest('.addButton') && !target.closest('app-user-employee')) {
+      this.addVisible = false;
+    }
+  }
+
+>>>>>>> 5b99026682f8dfc00bc51cd28ec78c43cf119e7d
 confirmDeactivation2() {
   this.isConfirmingDeactivation = true; 
   this.loading = true; 

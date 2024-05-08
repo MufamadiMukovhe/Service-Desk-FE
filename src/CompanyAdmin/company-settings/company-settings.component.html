@@ -265,7 +265,9 @@
                     <button class="cancel" (click)="toggleDropdown(2)" [disabled]="isConfirmingDeactivation">
                       <ng-container *ngIf="!isConfirmingDeactivation">{{ buttonText }}</ng-container>
                       <ng-container *ngIf="isConfirmingDeactivation">
-                          
+                        <div class="simple-spinner-container">
+                          <span class="simple-spinner"></span>
+                        </div>
                       </ng-container>
                       
                       </button>
@@ -446,48 +448,47 @@
             <td><span>IT Technician</span></td>
             <td><span class="active-status">Active</span></td>
             <td>
-              <!--Disabling the Agent-->
-              <div class="button-container">
-                <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[2] }">
-                  <button class="cancel" (click)="toggleDropdown(2)" [disabled]="isConfirmingDeactivation">
-                    <ng-container *ngIf="!isConfirmingDeactivation">{{ buttonText }}</ng-container>
-                    <ng-container *ngIf="isConfirmingDeactivation">
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        
-                    </ng-container>
-                    
-                    </button>
-                
-                
-                    <div class="dropdown-content">
-                        <span>Are you sure you want to <strong>Disable?</strong></span>
-                        <hr>
-                        <div class="row">
-                            <div class="col">
-                                <button (click)="confirmDeactivation()">Yes</button>
-                            </div>
-                            <div class="col">
-                                <button (click)="closeDropdown()">No</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Enable-->
-                    
-                    <div class="dropdown-content" *ngIf="buttonText==='Enable'">
-                      <span>Are you sure you want to <strong>Enable?</strong></span>
-                      <hr>
-                      <div class="row">
-                          <div class="col">
-                              <button (click)="confirmDeactivation2()">Yes</button>
-                          </div>
-                          <div class="col">
-                              <button (click)="closeDropdown()">No</button>
-                          </div>
-                      </div>
-                  </div>
-                </div>
+             <!-- Disabling the Agent -->
+<div class="button-container">
+  <div class="dropdown" [ngClass]="{ 'open': isDropdownOpen[2] }">
+      <button class="cancel" (click)="toggleDropdown(2)" [disabled]="isConfirmingDeactivation">
+          <ng-container *ngIf="!isConfirmingDeactivation">{{ buttonText }}</ng-container>
+          <ng-container *ngIf="isConfirmingDeactivation">
+            <div class="simple-spinner-container">
+              <span class="simple-spinner"></span>
             </div>
+          </ng-container>
+      </button>
+
+      <div class="dropdown-content">
+          <span>Are you sure you want to <strong>Disable?</strong></span>
+          <hr>
+          <div class="row">
+              <div class="col">
+                  <button (click)="confirmDeactivation()">Yes</button>
+              </div>
+              <div class="col">
+                  <button (click)="closeDropdown()">No</button>
+              </div>
+          </div>
+      </div>
+
+      <!-- Enable -->
+
+      <div class="dropdown-content" *ngIf="buttonText==='Enable'">
+          <span>Are you sure you want to <strong>Enable?</strong></span>
+          <hr>
+          <div class="row">
+              <div class="col">
+                  <button (click)="confirmDeactivation2()">Yes</button>
+              </div>
+              <div class="col">
+                  <button (click)="closeDropdown()">No</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
             </td>
                
         </tr>
