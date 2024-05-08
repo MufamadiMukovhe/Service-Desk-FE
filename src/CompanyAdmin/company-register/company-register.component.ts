@@ -60,7 +60,6 @@ export class CompanyRegisterComponent {
 }
 
 switchToForm(form: string) {
-    // Implement your logic to switch to the specified form
     this.currentForm = form;
     console.log(`Switching to ${form}`);
 }
