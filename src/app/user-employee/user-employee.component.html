@@ -3,7 +3,11 @@
     <h3 style="color: black"><strong>Add User</strong></h3>
     <hr>
     
+<<<<<<< HEAD
     <form [formGroup]="add_user_form[0]" (ngSubmit)="storeUser()" >         
+=======
+    <form [formGroup]="add_user_form" >         
+>>>>>>> 5b99026682f8dfc00bc51cd28ec78c43cf119e7d
       <fieldset>
          <input type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="First Name">
          <div
@@ -23,8 +27,13 @@
 
            <select formControlName="designation">
             <option value="" disabled selected>Choose designation</option>
+<<<<<<< HEAD
             <option value="User" class="option-status"> Employee </option>
             <option value="agent"> Agent </option>
+=======
+            <option value="employee" class="option-status">Employee</option>
+            <option value="agent">Agent</option>
+>>>>>>> 5b99026682f8dfc00bc51cd28ec78c43cf119e7d
         </select>
         
         <div *ngIf="add['designation'].invalid && (add['designation'].dirty || add['designation'].touched)" class="alert alert-danger">
@@ -59,6 +68,7 @@
            </div>
           
       </fieldset>
+<<<<<<< HEAD
       <button type="submit" class="nextButton">
         <span *ngIf="!submittingForm">Save</span>
           <div *ngIf="submittingForm" class="spinner-container">
@@ -71,6 +81,12 @@
       <div *ngIf="showAlert" [ngClass]="alertType === 'success' ? 'alert alert-success' : 'alert alert-danger'">
         {{ alertMessage }}
       </div>
+=======
+      <button type="submit" class="nextButton" [disabled]="add_user_form.invalid || showSpinner" (click)="saveChanges()">
+        <span *ngIf="!showSpinner"> Save</span>
+        <div *ngIf="showSpinner" class="spinner"></div>
+      </button>
+>>>>>>> 5b99026682f8dfc00bc51cd28ec78c43cf119e7d
 
   </form>
 
@@ -79,5 +95,10 @@
         {{ successMessage }}
   </div>
 </div>
+<<<<<<< HEAD
+=======
+<!--
+<button class="closeButton" (click)=" closeWindow()">Close</button>-->
+>>>>>>> 5b99026682f8dfc00bc51cd28ec78c43cf119e7d
 
     </div>

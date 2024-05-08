@@ -62,8 +62,9 @@
                                               <button class="cancel" (click)="toggleDropdown(2)" [disabled]="isConfirmingDeactivation">
                                                 <ng-container *ngIf="!isConfirmingDeactivation">{{ buttonText }}</ng-container>
                                                 <ng-container *ngIf="isConfirmingDeactivation">
-                                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                                    
+                                                  <div class="simple-spinner-container">
+                                                    <span class="simple-spinner"></span>
+                                                  </div>                                                    
                                                 </ng-container>
                                                 
                                                 </button>
