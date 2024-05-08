@@ -59,7 +59,6 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
 
   saveChanges() {
     if (this.add_user_form.valid) {
-        this.userAdded = true;
         this.showSpinner = true;
 
         setTimeout(() => {
