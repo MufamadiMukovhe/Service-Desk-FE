@@ -63,11 +63,28 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
   
       setTimeout(() => {
         this.showSpinner = false;
-        this.successMessage = 'User added successfully.';
+        const firstName = this.add_user_form.get('firstName')?.value;
+        const lastName = this.add_user_form.get('lastName')?.value;
+        const designation = this.add_user_form.get('designation')?.value;
+  
+        let successMessage = '';
+        if (designation === 'Agent') {
+          successMessage = `Agent "${firstName} ${lastName}" successfully added.`;
+        } else {
+          successMessage = `Employee "${firstName} ${lastName}" successfully added.`;
+        }
+  
+        this.successMessage = successMessage;
         this.add_user_form.reset();
-      }, 5000); 
+  
+        setTimeout(() => {
+          this.successMessage = ''; // Clear the success message after 3 seconds
+        }, 3000);
+      }, 5000);
     }
   }
+  
+  
 
   //Closing the window
   closeWindow() {

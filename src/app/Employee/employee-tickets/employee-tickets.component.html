@@ -82,8 +82,12 @@
        
 
         <!--Unresolved Tickets-->
+        <!--Adding a scrollbar-->
+
+        <div>
         <div class="row" *ngIf="currentForm === 'unresolved'" >
 
+          <!--First Batch-->
         <div style="margin-bottom: 20px;">
           <div class="card" style="width: 100%;">
             <div class="card-header">
@@ -108,6 +112,7 @@
           </div>
         </div>
 
+        <!--Second Batch-->
         <div style="margin-bottom: 20px;">
           
           <div class="card">
@@ -132,7 +137,20 @@
               <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
             </div>
           </div>
+
+          <div class="previous-next">
+            <button class="btn btn-primary btn-sm" style="width: 100px; height: 40px;">
+               Previous
+            </button>
+            <button class="btn btn-primary btn-sm ml-2" style="width: 100px; height: 40px;" >
+              Next 
+            </button>
+          </div>
+
         </div>
+
+        
+        
 
       </div>
 
@@ -188,7 +206,17 @@
                 <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
               </div>
             </div>
+            <div class="previous-next">
+              <button class="btn btn-primary btn-sm" style="width: 100px; height: 40px;">
+                 Previous
+              </button>
+              <button class="btn btn-primary btn-sm ml-2" style="width: 100px; height: 40px;" >
+                Next 
+              </button>
+            </div>
           </div>
+
+          
   
         </div>
 
@@ -244,10 +272,19 @@
                 <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
               </div>
             </div>
+            <div class="previous-next">
+              <button class="btn btn-primary btn-sm" style="width: 100px; height: 40px;">
+                 Previous
+              </button>
+              <button class="btn btn-primary btn-sm ml-2" style="width: 100px; height: 40px;" >
+                Next 
+              </button>
+            </div>
           </div>
   
         </div>
 
+      </div>
       </div>
       <div class="col-2">
         
@@ -272,7 +309,7 @@
           <fieldset>
             <label>Request Ticket Type</label>
             <select id="type" name="" formControlName="type">
-              <option value="Default">Choose Type</option>
+              <option value="" disabled selected>Choose Type</option>
               <option value="Type 1">Type A</option>
               <option value="Type 2">Type B</option>
             </select>
@@ -287,7 +324,7 @@
 
             <label>Priority Status</label>
             <select id="status" name="" formControlName="priority_status">
-              <option value="Default">Select Status</option>
+              <option value="" disabled selected>Select Status</option>
                <option value="Type 1">Type A</option>
               <option value="Type 2">Type B</option>
             </select>
@@ -314,9 +351,17 @@
              <!--End Of Validations-->
 
           </fieldset>
-          <button type="submit" [disabled]="ticketForm.invalid">Submit</button>
+          <button type="submit" [disabled]="ticketForm.invalid || showSpinner" (click)="addTicket()">
+            <span *ngIf="!showSpinner">Submit</span>
+            <div *ngIf="showSpinner" class="spinner"></div>
+          </button>
+          <div *ngIf="successMessage">
+            <div class="alert alert-success" role="alert">
+                {{ successMessage }}
+          </div>
+        </div>
         </form>
-      </div>
+       
 
      </div>
   </div>

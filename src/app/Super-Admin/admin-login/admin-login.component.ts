@@ -16,4 +16,13 @@ export class AdminLoginComponent {
     password: new FormControl('',  [Validators.required, Validators.minLength(8), Validators.maxLength(12)]),
   });
   get login (){return this.loginForm.controls;}
+  showSpinner: boolean = false;
+
+  signIn() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 5000);
+  
+  }
 }

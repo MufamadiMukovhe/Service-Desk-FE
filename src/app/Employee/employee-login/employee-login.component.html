@@ -44,10 +44,12 @@
          </div>
           
       
-          <button [disabled]="loginForm.invalid" type="submit"
-                      class="btn btn-primary btn-user btn-block mb-3">
-                      Sign In
-                  </button>
+         <button [disabled]="loginForm.invalid || showSpinner" type="submit"
+         class="btn btn-primary btn-user btn-block mb-3" style="height: 45px;"
+         (click)="signIn()">
+            <span *ngIf="showSpinner" class="spinner" role="status" aria-hidden="true"></span>
+            <span *ngIf="!showSpinner">Sign In</span>
+          </button>
                   <div class="text-left">
                     <span style="color: grey"><a routerLink="/employee-fgt-password"  style="color:#54BEB8;text-decoration: none;">Forgot your password? </a>
                     </span>

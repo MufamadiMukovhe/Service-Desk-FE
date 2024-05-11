@@ -49,10 +49,8 @@ export class CompanyRegisterComponent {
   toggleForms() {
     this.isLoading = true;
     setTimeout(() => {
-        // Perform whatever action needed after 5 seconds
-        // For example, redirect to another page or load another component
+        
         this.isLoading = false;
-        // Switch to 'form2' if it's not already the current form
         if (this.currentForm !== 'form2') {
             this.switchToForm('form2');
         }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class EmployeeTicketsComponent
   previousMenuItem: string = ''; // Initialize with empty value
   filterForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private el: ElementRef) {
     this.filterForm = this.formBuilder.group({
       status: new FormControl(''),
       priority: new FormControl(''),
@@ -45,6 +45,28 @@ export class EmployeeTicketsComponent
   toggleForms(form: string) {
     this.currentForm = form;
   }
+
+  showSpinner: boolean = false;
+  userAdded: boolean = false;
+  successMessage: string = '';
+
+
+  addTicket() {
+    if (this.ticketForm.valid) {
+      this.showSpinner = true;
+  
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.successMessage = `Ticket added successfully.`;
+        this.ticketForm.reset();
+        
+        setTimeout(() => {
+          this.successMessage = ''; 
+        }, 3000);
+      }, 5000); 
+    }
+  }
+
 
 
 //Filter toggle

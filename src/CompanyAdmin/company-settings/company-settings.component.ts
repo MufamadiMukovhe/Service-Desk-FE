@@ -31,21 +31,7 @@ export class CompanySettingsComponent {
     confirm_password: ['', [Validators.required]],
   }, { validators: this.MustMatch('new_password', 'confirm_password') });
   
-//Adding a User form
-  add_user_form: FormGroup = new FormGroup({
-    //fullName: new FormControl('', [Validators.required, this.noNumbersValidator()]),
-    firstName: new FormControl('', [Validators.required, this.noNumbersValidator()]),
-    lastName: new FormControl('', [Validators.required, this.noNumbersValidator()]),
-    designation: new FormControl('',[Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phone_number: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
 
-    //status: new FormControl('', Validators.required),
-    position: new FormControl('', Validators.required),
-
-      
-
-    });
 
   //comfirm password
   MustMatch( password:any, confirm_password:any)
@@ -127,7 +113,7 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
         this.showSpinner = false;
       }, 5000);
     }
-     //Button to select
+    
 
   onFileSelected(event: any) {
     const selectedFile = event.target.files[0];
@@ -186,6 +172,9 @@ confirmDeactivation() {
   }, 2000); 
 }
 
+
+//Calling the user-employee form
+
 addVisible: boolean = false;
 toggleAddForms() {
   this.addVisible = !this.addVisible;
@@ -230,7 +219,6 @@ closeDropdown() {
   
     get profile (){return this.profileForm.controls;}
     get password (){return this.passwordForm.controls;}
-    get add (){return this.add_user_form.controls;}
 
 
 

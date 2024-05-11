@@ -293,7 +293,7 @@
           <fieldset>
             <label>Request Ticket Type</label>
             <select id="type" name="" formControlName="type">
-              <option value="Default">Choose Type</option>
+              <option value="" disabled selected>Choose Type</option>
               <option value="Type 1">Type A</option>
               <option value="Type 2">Type B</option>
             </select>
@@ -308,7 +308,7 @@
 
             <label>Priority Status</label>
             <select id="status" name="" formControlName="priority_status">
-              <option value="Default">Select Status</option>
+              <option value="" disabled selected>Select Status</option>
                <option value="Type 1">Type A</option>
               <option value="Type 2">Type B</option>
             </select>
@@ -335,8 +335,17 @@
              <!--End Of Validations-->
 
           </fieldset>
-          <button type="submit" [disabled]="ticketForm.invalid">Submit</button>
-        </form>
+          <button type="submit" [disabled]="ticketForm.invalid || showSpinner" (click)="addTicket()">
+            <span *ngIf="!showSpinner">Submit</span>
+            <div *ngIf="showSpinner" class="spinner"></div>
+          </button>
+
+          <div *ngIf="successMessage">
+            <div class="alert alert-success" role="alert">
+                {{ successMessage }}
+          </div>
+        </div>
+          </form>
       </div>
 
      </div>

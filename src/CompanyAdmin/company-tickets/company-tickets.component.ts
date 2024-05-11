@@ -45,6 +45,28 @@ export class CompanyTicketsComponent {
 
   startDate: Date = new Date();
   endDate: Date = new Date();
+
+  showSpinner: boolean = false;
+  userAdded: boolean = false;
+  successMessage: string = '';
+
+  // Your form initialization and other existing code...
+
+  addTicket() {
+    if (this.ticketForm.valid) {
+      this.showSpinner = true;
+  
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.successMessage = `Ticket added successfully.`;
+        this.ticketForm.reset();
+        
+        setTimeout(() => {
+          this.successMessage = ''; 
+        }, 3000);
+      }, 5000); 
+    }
+  }
   
   get new_ticket (){return this.ticketForm.controls;}
 

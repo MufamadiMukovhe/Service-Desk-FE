@@ -23,8 +23,8 @@
 
            <select formControlName="designation">
             <option value="" disabled selected>Choose designation</option>
-            <option value="employee" class="option-status">Employee</option>
-            <option value="agent">Agent</option>
+            <option value="Employee" class="option-status">Employee</option>
+            <option value="Agent">Agent</option>
         </select>
         
         <div *ngIf="add['designation'].invalid && (add['designation'].dirty || add['designation'].touched)" class="alert alert-danger">

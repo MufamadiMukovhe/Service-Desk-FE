@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef  } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -30,7 +30,6 @@ export class SubscriptionsComponent {
         this.currentForm = form;
       }
 
-      get add_subscriber (){return this.subscriptionForm.controls;}
 
 //Validating Agents number
 
@@ -95,14 +94,28 @@ confirmDeactivation2() {
   }, 2000); 
 }
 
-
-
-
-
 closeDropdown() {
   // Close all dropdowns
   for (let i = 0; i < this.isDropdownOpen.length; i++) {
     this.isDropdownOpen[i] = false;
   }
-}     
+}  
+//Calling the user-employee form
+
+addVisible: boolean = false;
+toggleAddForms() {
+  this.addVisible = !this.addVisible;
+}
+
+//Closing the form if the user press at any other part of the page
+/*
+@HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+        const target = event.target as HTMLElement;
+    if (!target.closest('.addButton') && !target.closest('app-package-form')) {
+      this.addVisible = false;
+    }
+  }*/
+get add_subscriber (){return this.subscriptionForm.controls;}
+
 }

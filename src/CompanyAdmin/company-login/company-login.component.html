@@ -50,16 +50,14 @@
            
              </div>
 
-            
-          
-      
-             <button [disabled]="loginForm.invalid || showSpinner" type="submit" 
-             class="btn btn-primary btn-user btn-block mb-3" style="height: 45px;" (click)="onSubmit()">
-         <span *ngIf="!showSpinner">Sign In</span>
-         <span *ngIf="showSpinner">Signing In...</span>
-     </button>
- 
-                 
+             <button [disabled]="loginForm.invalid || showSpinner" type="submit"
+             class="btn btn-primary btn-user btn-block mb-3" style="height: 45px;"
+             (click)="signIn()">
+                <span *ngIf="showSpinner" class="spinner" role="status" aria-hidden="true"></span>
+                <span *ngIf="!showSpinner">Sign In</span>
+              </button>
+     
+
                   <div class="text-left">
                       <p style="color: grey">Don't have account? <a routerLink="/company-register"  style="color:#54BEB8;text-decoration: none;">Register</a></p>
                       <p><a routerLink="/forget-password"  style="color:#54BEB8;text-decoration: none;">Forgot Password</a></p>
