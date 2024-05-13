@@ -18,7 +18,6 @@ subscriptionForm:FormGroup = new FormGroup({
   id: new FormControl('0'),
   name: new FormControl('',[Validators.required]),
   expDate: new FormControl('', [Validators.required]),
-  status: new FormControl('', Validators.required),
   price: new FormControl('', [Validators.required, this.validateNumber.bind(this)]),
   agents: new FormControl('', [Validators.required, this.validateNumber.bind(this)])
  })
@@ -53,6 +52,10 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
         const packageName = this.subscriptionForm.get('name')?.value;
         this.successMessage = `Package "${packageName}" added successfully.`;
         this.subscriptionForm.reset();
+        
+        setTimeout(() => {
+          this.successMessage = ''; 
+        }, 3000); 
       }, 5000); 
     }
   }

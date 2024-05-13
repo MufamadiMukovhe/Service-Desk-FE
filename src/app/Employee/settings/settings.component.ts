@@ -14,9 +14,12 @@ export class SettingsComponent {
   profileForm: FormGroup = new FormGroup({
   fullName: new FormControl('Phumudzo Tshivhase', [Validators.required, this.noNumbersValidator()]),
   email: new FormControl('Phumu98@gmail.com', [Validators.required, Validators.email]),
+  department: new FormControl('IT Sales', [Validators.required])
+  
+  /*
   password: new FormControl('12345678', Validators.required),
   dob: new FormControl(new Date(), Validators.required),
-  country: new FormControl('South Sudan', Validators.required),
+  country: new FormControl('South Sudan', Validators.required),*/
   })
 
 
@@ -81,6 +84,35 @@ export class SettingsComponent {
     this.isOn = !this.isOn;
     this.buttonText = this.isOn ? 'On' : 'Off';
   }
+ 
+    //Save Changes spinner
+    showSpinner: boolean = false;
+    successMessage: string = '';
+
+    saveChanges() {
+      this.showSpinner = true;
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.successMessage = 'Profile details changed successfully!'; 
+        setTimeout(() => {
+          this.successMessage = ''; 
+        }, 3000);
+      }, 5000);
+    }
+
+    changesPassword(){
+      this.showSpinner = true;
+  
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.successMessage = 'Password changed successfully!'; 
+        this.passwordForm.reset(); 
+        setTimeout(() => {
+          this.successMessage = ''; 
+        }, 3000);
+      }, 5000);
+    }
+
    
 
   get profile (){return this.profileForm.controls;}

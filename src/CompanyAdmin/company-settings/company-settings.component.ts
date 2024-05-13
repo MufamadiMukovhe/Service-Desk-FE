@@ -104,6 +104,17 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
       }, 5000);
     }
 
+    //changePassword
+    changesPassword(){
+      this.showSpinner = true;
+  
+      setTimeout(() => {
+        this.showSpinner = false;
+      }, 5000);
+    }
+
+    
+
 
     //Add Agent/Employee
     addUsers() {

@@ -143,9 +143,12 @@
                    <span *ngIf="password['confirm_password'].errors?.['MustMatch']" >Password does not match</span>
 
                     </div>
-                    
 
-               
+                    <button type="submit" class="nextButton" [disabled]="profileForm.invalid || showSpinner" (click)="changesPassword()">
+                      <span *ngIf="!showSpinner">Save Password</span>
+                      <div *ngIf="showSpinner" class="spinner"></div>
+                    </button>
+            
               </fieldset>
             
               

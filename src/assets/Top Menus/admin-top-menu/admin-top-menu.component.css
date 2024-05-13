@@ -57,4 +57,11 @@
   background-color: #2980b9;
 }
 
+.profile-image{
+  margin-left: -15px;
+  width:40px; 
+  height: 40px;
+  border-radius: 50%;
+}
+
   
