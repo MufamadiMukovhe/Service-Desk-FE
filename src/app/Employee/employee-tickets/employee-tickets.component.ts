@@ -26,9 +26,9 @@ export class EmployeeTicketsComponent
 
   ticketForm:FormGroup = new FormGroup({
 
-    email: new FormControl('',[Validators.required,Validators.email]),
+    /*email: new FormControl('',[Validators.required,Validators.email]),
+    priority_status: new FormControl ('',[Validators.required]),*/
     type: new FormControl('',[Validators.required]),
-    priority_status: new FormControl ('',[Validators.required]),
     ticketBody: new FormControl('', [Validators.required])
 
   })

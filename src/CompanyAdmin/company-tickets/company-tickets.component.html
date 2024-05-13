@@ -8,6 +8,7 @@
 
   <div class="content-wrapper">    <div class="row">
       <h2><strong>Tickets</strong></h2>
+      <hr>
       
       <!-- Column for Dynamic Content -->
 
@@ -255,7 +256,7 @@
       <div class="col-2">
         
         <form [formGroup]="ticketForm">
-          <span class="header"><strong>Create Quick Ticket</strong></span><br>
+          <span class="header"><strong>CREATE QUICK TICKET</strong></span><br>
           <span class="form-header">Write and address new queries and issues</span>
           <hr/>
           <fieldset>
@@ -305,21 +306,6 @@
             <span *ngIf="new_ticket['type'].errors?.['required']" style="color:#f98f8f">Please select ticket type</span>
             </div>
              <!--End Of Validations-->
-
-            <label>Priority Status</label>
-            <select id="status" name="" formControlName="priority_status">
-              <option value="" disabled selected>Select Status</option>
-               <option value="Type 1">Type A</option>
-              <option value="Type 2">Type B</option>
-            </select>
-
-             <!--Validations-->
-             <div
-             *ngIf="new_ticket['priority_status'].invalid && (new_ticket['priority_status'].dirty || new_ticket['priority_status'].touched)"
-             class="alert alert-danger" >  
-             <span *ngIf="new_ticket['priority_status'].errors?.['required']" style="color:#f98f8f">Please choose status</span>
-             </div>
-              <!--End Of Validations-->
 
           </fieldset>
           <fieldset>
