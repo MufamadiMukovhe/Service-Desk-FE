@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PackageService } from 'src/app/PackageService';
 
 @Component({
   selector: 'app-company-subscriptions',

@@ -105,7 +105,7 @@
             <!--End Of Profile details form-->
 
             <!--Change password Form-->
-            <form [formGroup]="passwordForm" *ngIf="currentForm === 'form2'" >
+            <form [formGroup]="passwordForm" *ngIf="currentForm === 'form2'">
                
               <fieldset>
             
@@ -147,13 +147,7 @@
 
                
               </fieldset>
-              
-               
-             
-              <button type="submit" class="nextButton" [disabled]="passwordForm.invalid || showSpinner" (click)="changePassword()">
-                <span *ngIf="!showSpinner">Save Password</span>
-                <div *ngIf="showSpinner" class="spinner"></div>
-              </button>
+            
               
           </form>
              
@@ -240,20 +234,18 @@
             </tr>
         </thead>
         <tbody>
-
-          <!--First Batch-->
           <tr>
               <td><a routerLink="/view-agents">John Smith</a></td>
               <td>IT Support</td>
               <td><span class="active-status">Active</span></td>
               <td><button class="cancel">Disable</button>
-          </tr>
-           <tr>
-                <td><a routerLink="/view-agents">John Smith</a></td>
-                <td>IT Support</td>
-                <td><span class="active-status">Active</span></td>
-                <td><button class="cancel">Disable</button>
-                </tr>
+              </tr>
+          <tr>
+              <td><a routerLink="/view-agents">John Smith</a></td>
+              <td>IT Support</td>
+              <td><span class="active-status">Active</span></td>
+              <td><button class="cancel">Disable</button>
+              </tr>
           <tr>
               <td><a routerLink="/view-agents">John Smith</a></td>
               <td>IT Support</td>

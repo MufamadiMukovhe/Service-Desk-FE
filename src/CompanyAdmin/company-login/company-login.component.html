@@ -20,7 +20,7 @@
        
         <br>
         <div class="row">
-          <form [formGroup]="loginForm" class="col-md-6 mx-auto">
+          <form [formGroup]="loginForm" class="col-md-6 mx-auto" >
             <!--
             <h5 class="form-header"><strong>Create Account</strong></h5>
             <hr/>-->
@@ -56,7 +56,6 @@
                 <span *ngIf="showSpinner" class="spinner" role="status" aria-hidden="true"></span>
                 <span *ngIf="!showSpinner">Sign In</span>
               </button>
-     
 
                   <div class="text-left">
                       <p style="color: grey">Don't have account? <a routerLink="/company-register"  style="color:#54BEB8;text-decoration: none;">Register</a></p>

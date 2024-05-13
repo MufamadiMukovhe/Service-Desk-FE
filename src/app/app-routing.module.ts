@@ -34,7 +34,7 @@ import { CompanySubscriptionsComponent } from 'src/CompanyAdmin/company-subscrip
 import { CompanyTicketDetailsComponent } from 'src/CompanyAdmin/company-ticket-details/company-ticket-details.component';
 import { AdminChangePasswordComponent } from './Super-Admin/admin-change-password/admin-change-password.component';
 import { EmployeeChangePasswordComponent } from './Employee/employee-change-password/employee-change-password.component';
-
+import { AuthGuard } from './utility/services/authgaurd.service'; 
 
 
 const routes: Routes = [
@@ -71,8 +71,8 @@ const routes: Routes = [
   {path:"company-dashboard",component:CompanyAdminDashboardComponent},
   {path:"company-settings",component:CompanySettingsComponent},
   {path:"company-reports",component:ReportsComponent},
-  {path:"company-tickets",component:CompanyTicketsComponent},
-  {path:"more-settings",component: MoreSettingsComponent},
+  {path:"company-tickets",component:CompanyTicketsComponent,},
+  {path:"more-settings",component: MoreSettingsComponent,},
   {path:"view-employee",component: ViewEmployeeComponent},
   {path:"view-agents",component: ViewAgentComponent},
   {path:"company-login",component: CompanyLoginComponent},

@@ -1,6 +1,9 @@
+
 import { Component, OnInit, HostListener, ElementRef  } from '@angular/core';
 import { FormControl, FormGroup, Validators,FormBuilder, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/utility/services/auth.service';
+import jwt_decode from 'jwt-decode';
 
 
 declare var $: any; // Declare jQuery
@@ -10,8 +13,14 @@ declare var $: any; // Declare jQuery
   styleUrls: ['./company-settings.component.css']
 })
 export class CompanySettingsComponent {
-  constructor(private fb: FormBuilder) {}
 
+  companyId: string="";
+  apiUrl:string ="";
+  agents: any[] = []; // Define the agents array to hold the data
+  loadings = true; // Flag to track loading state
+
+  
+  constructor(private fb: FormBuilder,private formBuilder: FormBuilder,) {}
   
 //Change profile details form
   profileForm: FormGroup = new FormGroup({
@@ -23,15 +32,15 @@ export class CompanySettingsComponent {
     });
 
     
-  //Change Password Form
+    //Change Password Form
 
-  passwordForm: FormGroup = this.fb.group({
-    old_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
-    new_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
-    confirm_password: ['', [Validators.required]],
-  }, { validators: this.MustMatch('new_password', 'confirm_password') });
+    passwordForm: FormGroup = this.fb.group({
+      email: ['', [Validators.email]],
+      old_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
+      new_password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
+      confirm_password: ['', [Validators.required]],
+    }, { validators: this.MustMatch('new_password', 'confirm_password') });
   
-
 
   //comfirm password
   MustMatch( password:any, confirm_password:any)
@@ -95,15 +104,6 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
       }, 5000);
     }
 
-    //Change Password
-
-    changePassword() {
-      this.showSpinner = true;
-  
-      setTimeout(() => {
-        this.showSpinner = false;
-      }, 5000);
-    }
 
     //Add Agent/Employee
     addUsers() {
@@ -179,15 +179,6 @@ addVisible: boolean = false;
 toggleAddForms() {
   this.addVisible = !this.addVisible;
 }
-
-//Closing the form if the user press at any other part of the page
-@HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent) {
-        const target = event.target as HTMLElement;
-    if (!target.closest('.addButton') && !target.closest('app-user-employee')) {
-      this.addVisible = false;
-    }
-  }
 
 confirmDeactivation2() {
   this.isConfirmingDeactivation = true; 

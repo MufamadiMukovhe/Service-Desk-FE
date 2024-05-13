@@ -59,6 +59,7 @@
            </div>
           
       </fieldset>
+
       <button type="submit" class="nextButton" [disabled]="add_user_form.invalid || showSpinner" (click)="saveChanges()">
         <span *ngIf="!showSpinner"> Save</span>
         <div *ngIf="showSpinner" class="spinner"></div>
@@ -71,7 +72,4 @@
         {{ successMessage }}
   </div>
 </div>
-<!--
-<button class="closeButton" (click)=" closeWindow()">Close</button>-->
-
     </div>
