@@ -65,6 +65,7 @@ export class CompanyTicketsComponent {
   applyFilters() {
       this.showSpinner2 = true;
         setTimeout(() => {
+          //this.showDropdown=false; let the Dropdown disappear after loading so that we can view "Filtered"
           this.showSpinner2 = false;
       }, 5000);
   }

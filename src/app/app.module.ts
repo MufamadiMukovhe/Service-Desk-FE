@@ -70,6 +70,7 @@ import { AdminChangePasswordComponent } from './Super-Admin/admin-change-passwor
 import { EmployeeChangePasswordComponent } from './Employee/employee-change-password/employee-change-password.component';
 import { UserEmployeeComponent } from './user-employee/user-employee.component';
 import { PackageFormComponent } from './package-form/package-form.component';
+import { EscalatedGraphComponent } from './Graphs/escalated-graph/escalated-graph.component';
 
 
 
@@ -129,6 +130,7 @@ import { PackageFormComponent } from './package-form/package-form.component';
     EmployeeChangePasswordComponent,
     UserEmployeeComponent,
     PackageFormComponent,
+    EscalatedGraphComponent,
 
   ],
   imports: [
