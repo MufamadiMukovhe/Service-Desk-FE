@@ -13,16 +13,9 @@ export class EmployeeTicketsComponent
 
   currentMenuItem: string = 'unresolved'; // Initialize with the default active menu item
   previousMenuItem: string = ''; // Initialize with empty value
-  filterForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private el: ElementRef) {
-    this.filterForm = this.formBuilder.group({
-      status: new FormControl(''),
-      priority: new FormControl(''),
-      fromDate: new FormControl(''),
-      toDate: new FormControl(''),
 
-    });
   }
 
   ticketForm:FormGroup = new FormGroup({
@@ -109,15 +102,7 @@ applyFilters() {
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
   }
-  @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent) {
-    const dropdownElement = document.getElementById('dropdown');
-    if (dropdownElement && dropdownElement.contains(event.target as Node)) {
-      return;
-    }
-    this.showDropdown = false;
-  }
-  
+ 
   stopPropagation(event: Event) {
     event.stopPropagation();
 }
