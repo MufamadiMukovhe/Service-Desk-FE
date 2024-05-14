@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, EventEmitter, Input, Output} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./company-tickets.component.css']
 })
 export class CompanyTicketsComponent {
+
+  @Input() message: string = '';
+  @Output() close = new EventEmitter<void>();
 
   ticketForm:FormGroup = new FormGroup({
     assignee: new FormControl('', [Validators.required]),
@@ -35,12 +38,19 @@ export class CompanyTicketsComponent {
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
   }
+
+  /*
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    const dropdownElement = document.getElementById('dropdown');
+    if (dropdownElement && dropdownElement.contains(event.target as Node)) {
+      return;
+    }
+    this.showDropdown = false;
+  }*/
   stopPropagation(event: Event) {
     event.stopPropagation();
 }
-  applyFilters() {
-    this.showDropdown=false
-  }
 
   startDate: Date = new Date();
   endDate: Date = new Date();
@@ -49,8 +59,17 @@ export class CompanyTicketsComponent {
   userAdded: boolean = false;
   successMessage: string = '';
 
-  // Your form initialization and other existing code...
+  showSpinner2: boolean = false;
 
+  //Filtering
+  applyFilters() {
+      this.showSpinner2 = true;
+        setTimeout(() => {
+          this.showSpinner2 = false;
+      }, 5000);
+  }
+
+  //Adding a ticket
   addTicket() {
     if (this.ticketForm.valid) {
       this.showSpinner = true;
@@ -66,6 +85,11 @@ export class CompanyTicketsComponent {
       }, 5000); 
     }
   }
+
+    //Closing the window
+    closeWindow() {
+      this.showDropdown=false;
+    }
   
   get new_ticket (){return this.ticketForm.controls;}
 

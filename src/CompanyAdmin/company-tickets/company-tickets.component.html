@@ -33,7 +33,7 @@
               </label>
               </li>
          </div>
-                <div class="dropdown">
+                <div class="dropdown" id="dropdown">
               <li>
                 
                 <button class="filterButton" (click)="toggleDropdown()">
@@ -41,7 +41,12 @@
                 Filter</button>
 
                 <div class="dropdown-content" [class.show]="showDropdown">
-                  <p><strong>Filters</strong></p>
+                  <div class="filters-header">
+                    <p><strong>FILTERS</strong></p>
+                  </div>
+                  <hr>
+                
+                  
                 
                  <select id="priority" name="" (click)="stopPropagation($event)">
                     <option value="Type 1">Choose Priority</option>
@@ -69,10 +74,12 @@
                       <mat-datepicker #endDatePicker panelClass="datepickerTwo"></mat-datepicker>
                     </div>
 
-
-                  
-
-        <button class="nextButton" (click)="applyFilters()">Apply Filters</button>    
+                    <button class="nextButton" (click)="applyFilters()">
+                      <span *ngIf="!showSpinner2">Apply</span>
+                      <div *ngIf="showSpinner2" class="filter-spinner"></div>
+                      </button>
+                    <button class="closeButton" (click)="closeWindow()">Close</button>
+                   
                 </div>
 
               

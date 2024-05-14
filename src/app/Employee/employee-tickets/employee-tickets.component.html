@@ -34,13 +34,14 @@
               </label>
               </li>
          </div>
-                <div class="dropdown">
+                <div class="dropdown" id="dropdown">
               <li><button class="filterButton" (click)="toggleDropdown()">
                 <img src="../../../assets/images/filter.svg"  > 
                 Filter</button>
 
                 <div class="dropdown-content" [class.show]="showDropdown">
-                  <p><strong>Filters</strong></p>
+                  <p><strong>FILTERS</strong></p>
+                  <hr>
                 
                  <select id="priority" name="" (click)="stopPropagation($event)">
                     <option value="Type 1">Choose Priority</option>
@@ -67,11 +68,13 @@
                     <mat-datepicker-toggle matSuffix [for]="endDatePicker" class="date-picker"></mat-datepicker-toggle>
                     <mat-datepicker #endDatePicker panelClass="datepickerTwo"></mat-datepicker>
                   </div>
+                  <button class="nextButton" (click)="applyFilters()">
+                    <span *ngIf="!showSpinner2">Apply</span>
+                    <div *ngIf="showSpinner2" class="filter-spinner"></div>
+                    </button>
+                  <button class="closeButton" (click)="closeWindow()">Close</button>
 
-        <button class="nextButton" (click)="applyFilters()">Apply Filters</button>    
                 </div>
-
-              
               </li>
               </div>
               

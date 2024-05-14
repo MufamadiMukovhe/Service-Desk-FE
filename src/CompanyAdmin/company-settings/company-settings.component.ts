@@ -113,9 +113,6 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
       }, 5000);
     }
 
-    
-
-
     //Add Agent/Employee
     addUsers() {
       this.showSpinner = true;
@@ -190,6 +187,14 @@ addVisible: boolean = false;
 toggleAddForms() {
   this.addVisible = !this.addVisible;
 }
+
+@HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+        const target = event.target as HTMLElement;
+    if (!target.closest('.addButton') && !target.closest('app-user-employee')) {
+      this.addVisible = false;
+    }
+  }
 
 confirmDeactivation2() {
   this.isConfirmingDeactivation = true; 

@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, HostListener, EventEmitter} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -50,6 +50,16 @@ export class EmployeeTicketsComponent
   userAdded: boolean = false;
   successMessage: string = '';
 
+  showSpinner2: boolean = false;
+
+//Filtering
+applyFilters() {
+    this.showSpinner2 = true;
+      setTimeout(() => {
+        this.showSpinner2 = false;
+    }, 5000);
+}
+
 
   addTicket() {
     if (this.ticketForm.valid) {
@@ -75,16 +85,22 @@ export class EmployeeTicketsComponent
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
   }
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    const dropdownElement = document.getElementById('dropdown');
+    if (dropdownElement && dropdownElement.contains(event.target as Node)) {
+      return;
+    }
+    this.showDropdown = false;
+  }
+  
   stopPropagation(event: Event) {
     event.stopPropagation();
 }
-  applyFilters() {
-    this.showDropdown=false
+
+   //Closing the window
+   closeWindow() {
+    this.showDropdown=false;
   }
-
- 
-  
   get new_ticket (){return this.ticketForm.controls;}
-
-
 }
