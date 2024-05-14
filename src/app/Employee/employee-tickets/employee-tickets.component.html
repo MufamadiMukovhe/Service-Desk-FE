@@ -17,14 +17,17 @@
         <div class="top-menu2">
           <nav>
             <ul style="display: flex; align-items: center;">
-              <li style="margin-right: 10px;" [class.active]="currentForm === 'unresolved'">
-                <a (click)="toggleForms('unresolved')" routerLink="#">Unresolved</a>
+              <li style="margin-right: 10px;" [class.active]="currentForm === 'opened'">
+                <a (click)="toggleForms('opened')" routerLink="#">Opened</a>
               </li>
               <li style="margin-right: 10px;" [class.active]="currentForm === 'inprogress'">
                 <a (click)="toggleForms('inprogress')" routerLink="#">In Progress</a>
               </li>
-              <li style="margin-right: 10px;" [class.active]="currentForm === 'resolved'">
-                <a (click)="toggleForms('resolved')" routerLink="#">Resolved</a>
+              <li style="margin-right: 10px;" [class.active]="currentForm === 'closed'">
+                <a (click)="toggleForms('closed')" routerLink="#">Closed</a>
+              </li>
+              <li style="margin-right: 15px;" [class.active]="currentForm === 'escalate'">
+                <a (click)="toggleForms('escalate')" routerLink="#">Escalated</a>
               </li>
         <div class="search-input">
           <li style="margin-right: 20px;">
@@ -88,7 +91,7 @@
         <!--Adding a scrollbar-->
 
         <div>
-        <div class="row" *ngIf="currentForm === 'unresolved'" >
+        <div class="row" *ngIf="currentForm === 'opened'" >
 
           <!--First Batch-->
         <div style="margin-bottom: 20px;">
@@ -225,7 +228,7 @@
 
         
         <!--Resolved Tickets-->
-        <div class="row" *ngIf="currentForm === 'resolved'" >
+        <div class="row" *ngIf="currentForm === 'closed'" >
 
           <div style="margin-bottom: 20px;">
             <div class="card" style="width: 100%;">
@@ -286,6 +289,71 @@
           </div>
   
         </div>
+
+        <!--Escalated tickets-->
+
+        <div class="row" *ngIf="currentForm === 'escalate'" >
+
+          <div style="margin-bottom: 20px;">
+            <div class="card" style="width: 100%;">
+              <div class="card-header">
+                <!--Ticket Header-->
+                <span class="ticket-header">Cannot access my system</span>
+                <span class="form-header">
+  
+                  <!--Ticket Date & View details-->
+                  07 - MAR | <a routerLink="/ticket-details">View</a>
+                </span>
+              </div>
+              <!--Ticket Message-->
+              <div class="ticket-message">
+                <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+              </div>
+              
+              <!--Ticket ID and Priority-->
+              <div class="urgent-section">
+                <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
+                <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+              </div>
+            </div>
+          </div>
+  
+          <div style="margin-bottom: 20px;">
+            
+            <div class="card">
+              <div class="card-header">
+                 <!--Ticket Header-->
+  
+                <span class="ticket-header">Cannot access my system</span>
+                <span class="form-header">
+                  <!--Ticket Date & View details-->
+                  07 - MAR | <a routerLink="/ticket-details">View</a>
+                </span>
+              </div>
+  
+              <!--Ticket Message-->
+              <div class="ticket-message">
+                <span class="">Life seasons open have. Air have of. Lights fill after let third darkness replenish fruitful let. Wherein set image. Creepeth said above gathered bring.</span>
+              </div>
+  
+               <!--Ticket ID and Priority-->
+              <div class="urgent-section">
+                <span class="form-header badge badge-danger" id="priorityID">Urgent</span>
+                <span id="ticketID" class="form-header badge badge-secondary">#1E233</span>
+              </div>
+            </div>
+            <div class="previous-next">
+              <button class="btn btn-primary btn-sm" style="width: 100px; height: 40px;">
+                 Previous
+              </button>
+              <button class="btn btn-primary btn-sm ml-2" style="width: 100px; height: 40px;" >
+                Next 
+              </button>
+            </div>
+          </div>
+  
+        </div>
+
 
       </div>
       </div>

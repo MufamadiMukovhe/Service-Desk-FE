@@ -40,7 +40,7 @@ export class EmployeeTicketsComponent
   }
 
   //Toggling through the buttons
-  currentForm: string = 'unresolved';
+  currentForm: string = 'opened';
 
   toggleForms(form: string) {
     this.currentForm = form;
