@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, EventEmitter} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Categories } from 'src/app/utility/models/department.data';
 
 @Component({
   selector: 'app-employee-tickets',
@@ -28,16 +29,39 @@ export class EmployeeTicketsComponent
 
     /*email: new FormControl('',[Validators.required,Validators.email]),
     priority_status: new FormControl ('',[Validators.required]),*/
-    type: new FormControl('',[Validators.required]),
-    ticketBody: new FormControl('', [Validators.required])
+    category: new FormControl('',[Validators.required]),
+    ticketBody: new FormControl('', [Validators.required]),
+    otherCategory: new FormControl('',[Validators.required])
 
   })
 
-  activeTab: string = 'tab1';
+  showOtherCategoryInput: boolean = false;
 
-  setActiveTab(tab: string): void {
-    this.activeTab = tab;
+  onCategoryChange() {
+    const categoryControl = this.ticketForm.get('category');
+    if (categoryControl) {
+      const selectedCategory = categoryControl.value;
+      if (selectedCategory === 'other') {
+        this.showOtherCategoryInput = true;
+        const otherCategoryControl = this.ticketForm.get('otherCategory');
+        if (otherCategoryControl) {
+          otherCategoryControl.setValidators(Validators.required);
+        }
+      } else {
+        this.showOtherCategoryInput = false;
+        const otherCategoryControl = this.ticketForm.get('otherCategory');
+        if (otherCategoryControl) {
+          otherCategoryControl.clearValidators();
+        }
+      }
+      const otherCategoryControl = this.ticketForm.get('otherCategory');
+      if (otherCategoryControl) {
+        otherCategoryControl.updateValueAndValidity();
+      }
+    }
   }
+  
+
 
   //Toggling through the buttons
   currentForm: string = 'opened';

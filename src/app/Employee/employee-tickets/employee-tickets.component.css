@@ -211,9 +211,8 @@ a{cursor: pointer;}
     text-align: center;
   }
   
-  input,
-  
-  select {
+  input
+  {
     background: white;
     border: none;
     font-size: 14px;
@@ -227,6 +226,21 @@ a{cursor: pointer;}
     margin-bottom: 5px;
     border: 1px solid #E7E7E7;
      border-radius: 4px;
+  }
+  select {
+    background: white;
+    border: none;
+    font-size: 14px;
+    height: 40px;
+    margin: 0;
+    outline: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 5px;
+    border: 1px solid #E7E7E7;
+     border-radius: 4px;
+     padding-left: 15px;
   }
   textarea{
   background: rgba(255,255,255,0.1);
@@ -267,15 +281,6 @@ button {
 
 }
 
-  
-  select {
-    padding: 6px;
-    height: 40px;
-    border-radius: 2px;
-  }
-  
- 
-  
   fieldset {
     margin-bottom: 5px;
     border: none;
@@ -428,12 +433,7 @@ a {
 .button {
   cursor: pointer;
 }
-input, select, textarea {
-  display: block;
-  width: 100%;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
+
 .top-menu2 {
   margin-bottom: 50px;
   margin-right: 5px;

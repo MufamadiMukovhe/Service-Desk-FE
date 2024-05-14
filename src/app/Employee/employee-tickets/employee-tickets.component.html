@@ -47,13 +47,13 @@
                   <hr>
                 
                  <select id="priority" name="" (click)="stopPropagation($event)">
-                    <option value="Type 1">Choose Priority</option>
+                    <option value="" disabled selected>Choose Priority</option>
                     <option value="Type 1">Type A</option>
                     <option value="Type 2">Type B</option>
                   </select>
 
                   <select id="status" name="" (click)="stopPropagation($event)">
-                    <option value="Type 1">Choose status</option>
+                    <option value="" disabled selected>Choose status</option>
                     <option value="Type 1">Type A</option>
                     <option value="Type 2">Type B</option>
                   </select>
@@ -365,20 +365,34 @@
           <hr/>
         
           <fieldset>
-            <label>Request Ticket Type</label>
-            <select id="type" name="" formControlName="type">
-              <option value="" disabled selected>Choose Ticket type</option>
-              <option value="Type 1">Type A</option>
-              <option value="Type 2">Type B</option>
+            <label for="category">Category</label>
+            <select id="category" formControlName="category" (change)="onCategoryChange()">
+              <option value="" disabled selected>Choose Category</option>
+              <option value="software">Software</option>
+              <option value="hardware">Hardware</option>
+              <option value="network">Network</option>
+              <option value="email">Email</option>
+              <option value="other">Other</option>
             </select>
 
-            <!--Validations-->
-            <div
-            *ngIf="new_ticket['type'].invalid && (new_ticket['type'].dirty || new_ticket['type'].touched)"
-            class="alert alert-danger" >  
-            <span *ngIf="new_ticket['type'].errors?.['required']" style="color:#f98f8f">Please select ticket type</span>
+             <!--Validations-->
+             <div
+             *ngIf="new_ticket['category'].invalid && (new_ticket['category'].dirty || new_ticket['category'].touched)"
+             class="alert alert-danger" >  
+             <span *ngIf="new_ticket['category'].errors?.['required']" style="color:#f98f8f">Please select ticket type</span>
+             </div>
+          
+            <div *ngIf="showOtherCategoryInput">
+              <label for="otherCategory">Other Category</label>
+              <input type="text" id="otherCategory" formControlName="otherCategory" placeholder="Type Category">
             </div>
-        
+
+             <!--Other Category Validations-->
+             <div
+             *ngIf="new_ticket['otherCategory'].invalid && (new_ticket['otherCategory'].dirty || new_ticket['otherCategory'].touched)"
+             class="alert alert-danger" >  
+             <span *ngIf="new_ticket['otherCategory'].errors?.['required']" style="color:#f98f8f">Please type category</span>
+             </div>
           </fieldset>
           <fieldset>
             <label>Ticket Body</label>

@@ -15,17 +15,38 @@ export class CompanyTicketsComponent {
   ticketForm:FormGroup = new FormGroup({
     assignee: new FormControl('', [Validators.required]),
     email: new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-    type: new FormControl('',[Validators.required]),
-    ticketBody: new FormControl('', [Validators.required])
-
+    category: new FormControl('',[Validators.required]),
+    ticketBody: new FormControl('', [Validators.required]),
+    /*In a case "Other" was the option chosen*/
+    otherCategory: new FormControl('',[Validators.required])
   })
 
-  activeTab: string = 'tab1';
+  
+  showOtherCategoryInput: boolean = false;
 
-  setActiveTab(tab: string): void {
-    this.activeTab = tab;
+  onCategoryChange() {
+    const categoryControl = this.ticketForm.get('category');
+    if (categoryControl) {
+      const selectedCategory = categoryControl.value;
+      if (selectedCategory === 'other') {
+        this.showOtherCategoryInput = true;
+        const otherCategoryControl = this.ticketForm.get('otherCategory');
+        if (otherCategoryControl) {
+          otherCategoryControl.setValidators(Validators.required);
+        }
+      } else {
+        this.showOtherCategoryInput = false;
+        const otherCategoryControl = this.ticketForm.get('otherCategory');
+        if (otherCategoryControl) {
+          otherCategoryControl.clearValidators();
+        }
+      }
+      const otherCategoryControl = this.ticketForm.get('otherCategory');
+      if (otherCategoryControl) {
+        otherCategoryControl.updateValueAndValidity();
+      }
+    }
   }
-
   //Toggling through the buttons
   currentForm: string = 'opened';
 

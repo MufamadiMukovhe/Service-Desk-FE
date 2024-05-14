@@ -31,14 +31,22 @@
                
                 <fieldset>
               
-                  <label for="email" >Full Name</label>
-                  <input type="text" id="name" name="user_name" formControlName="fullName" placeholder="Company Email">
+                  <label for="first-name">First Name</label>
+                  <input type="text" id="name" name="user_name" formControlName="firstName" placeholder="">
                   <div
-                  *ngIf="profile['fullName'].invalid && (profile['fullName'].dirty || profile['fullName'].touched)"
+                  *ngIf="profile['firstName'].invalid && (profile['firstName'].dirty || profile['firstName'].touched)"
                   class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
-                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f" >Fullname is required</span>
-                  <span *ngIf="profile['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
+                  <span *ngIf="profile['firstName'].errors?.['required']" style="color:#f98f8f" >Fullname is required</span>
+                  <span *ngIf="profile['firstName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
                    </div>
+
+                   <label for="last-name">Last Name</label>
+                   <input type="text" id="name" name="user_name" formControlName="lastName" placeholder="">
+                   <div
+                   *ngIf="profile['lastName'].invalid && (profile['lastName'].dirty || profile['lastName'].touched)"
+                   class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
+                   <span *ngIf="profile['lastName'].errors?.['required']" style="color:#f98f8f" >Lastname is required</span>
+                    </div>
 
                    <label for="email" class="input-fields">Email</label>
                   <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
