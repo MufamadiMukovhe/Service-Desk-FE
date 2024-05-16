@@ -15,4 +15,14 @@ export class EmployeeForgortPasswordComponent {
   });
   get forgot (){return this. forgetForm.controls;}
 
+  showSpinner: boolean = false;
+
+  // Change password method
+  passwordReset() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 5000);
+  }
+
 }

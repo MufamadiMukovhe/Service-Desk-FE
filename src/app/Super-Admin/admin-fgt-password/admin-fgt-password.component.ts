@@ -15,4 +15,14 @@ export class AdminFgtPasswordComponent {
     email: new FormControl('',Validators.compose([Validators.required,Validators.email])),
   });
   get forgot (){return this. forgetForm.controls;}
+  				   
+  showSpinner: boolean = false;
+
+  // Change password method
+  passwordReset() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 5000);
+  }
 }

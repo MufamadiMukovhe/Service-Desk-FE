@@ -15,4 +15,14 @@ export class CompanyFgtPasswordComponent {
   });
   get change_password (){return this.forget_Password_Form.controls;}
 
+  showSpinner: boolean = false;
+
+  // Sign-in method
+  passwordReset() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 5000);
+  }
+
 }

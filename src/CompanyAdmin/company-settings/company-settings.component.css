@@ -592,6 +592,25 @@ table {
     border-spacing: 0px;
     margin-top: 45px;
 }
+
+tbody {
+  display:block;
+  height:190px;
+  overflow:auto;
+}
+
+
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+
+
+thead {
+  width: calc( 100% - 1em )/* scrollbar is average 1em/16px width, remove it from thead width */
+}
+
 th, td {
     padding: 8px;
     text-align: center;
@@ -601,6 +620,7 @@ th{
     background-color: #F1F0FE;
     height: 60px;
 }
+
 
 
 
@@ -630,7 +650,9 @@ tr:not(:first-child) {
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   z-index: 1;
+  left: -120px; /* Adjust this value to move it to the right */
 }
+
 
 .dropdown-content span {
   margin-bottom: 10px;
@@ -675,11 +697,14 @@ tr:not(:first-child) {
   color: #000 !important;
   border-bottom: 2px solid #3818D9; 
   margin-left: 35px;
+  font-weight: 500;
 }
 .agents
 {
   color: #000 !important;
   border-bottom: 2px solid #3818D9; 
+  font-weight: 500;
+
 }
 
 

@@ -69,9 +69,6 @@ export class CompanyTicketsComponent {
     }
     this.showDropdown = false;
   }*/
-  stopPropagation(event: Event) {
-    event.stopPropagation();
-}
 
   startDate: Date = new Date();
   endDate: Date = new Date();
@@ -90,7 +87,6 @@ export class CompanyTicketsComponent {
           this.showSpinner2 = false;
       }, 5000);
   }
-
   //Adding a ticket
   addTicket() {
     if (this.ticketForm.valid) {

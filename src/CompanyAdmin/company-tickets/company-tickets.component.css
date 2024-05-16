@@ -128,6 +128,7 @@ margin-left: 25px;
     padding-right: 10px;
       margin-left: 25px;
 }
+
 .ticket-message {
   margin-top: 20px;
 }
@@ -459,36 +460,13 @@ border-bottom: 2px solid #3818D9;
 font-weight: 500;
 }
 
-
-.ticket-header {
-/* If there were specific styles, they would go here */
+.filters-header {
+  display: flex;
+  justify-content: space-between; 
 }
-
-/* .form-header {
-margin-left: 550px;
-} */
-
-.ticket-message {
-/* If there were specific styles, they would go here */
+.close-tab{
+  margin-right: 25px;
 }
-
-.ticket-priority {
-/* If there were specific styles, they would go here */
-}
-
-.ticket-id {
-/* If there were specific styles, they would go here */
-}
-
-.previous, .next {
-/* Add specific styles for these if necessary */
-}
-
-.filterButton {
-/* Add specific styles for the filter button if necessary */
-}
-
-/* Add any other extracted styles below */
 
 .top-menu2 {
 margin-bottom: 50px;
@@ -496,13 +474,12 @@ margin-right: 5px;
 border-bottom: 1px solid #E7E7E7;
 }
 
-/* .ticket-header, .form-header {
-display: block; /* Adjust as needed */
+.reset{
+  float: inline-end;
+  margin-right: 25px;
+}
 
 
-/* .ticket-message .form-header {
-margin-left: 550px;
-} */
 
 .ticket-priority, .ticket-id {
 display: inline-block; /* Adjust based on actual need */
