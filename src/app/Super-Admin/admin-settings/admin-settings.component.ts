@@ -14,10 +14,9 @@ export class AdminSettingsComponent {
   
 
   profileForm: FormGroup = new FormGroup({
-    fullName: new FormControl('Phumudzo Tshivhase', [Validators.required, this.noNumbersValidator()]),
+    firstName: new FormControl('Phumudzo ', [Validators.required, this.noNumbersValidator()]),
+    lastName: new FormControl(' Tshivhase', [Validators.required, this.noNumbersValidator()]),
     email: new FormControl('Phumu98@gmail.com', [Validators.required, Validators.email]),
-    dob: new FormControl(new Date(), Validators.required),
-    country: new FormControl('South Sudan', Validators.required),
     });
 
     

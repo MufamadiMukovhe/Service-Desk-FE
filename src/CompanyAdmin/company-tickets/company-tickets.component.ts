@@ -70,8 +70,10 @@ export class CompanyTicketsComponent {
     this.showDropdown = false;
   }*/
 
-  startDate: Date = new Date();
-  endDate: Date = new Date();
+  startDate: Date = new Date("");
+  endDate: Date = new Date("");
+  priority: string = "";
+  status: string = "";
 
   showSpinner: boolean = false;
   userAdded: boolean = false;
@@ -80,10 +82,13 @@ export class CompanyTicketsComponent {
   showSpinner2: boolean = false;
 
   //Filtering
-  applyFilters() {
+  resetFilters() {
       this.showSpinner2 = true;
         setTimeout(() => {
-          //this.showDropdown=false; let the Dropdown disappear after loading so that we can view "Filtered"
+          this.startDate = new Date(""); 
+          this.endDate = new Date("");
+          this.priority = "";
+          this.status = "";
           this.showSpinner2 = false;
       }, 5000);
   }

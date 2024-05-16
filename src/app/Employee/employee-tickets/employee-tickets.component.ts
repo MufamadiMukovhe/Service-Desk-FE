@@ -63,20 +63,28 @@ export class EmployeeTicketsComponent
     this.currentForm = form;
   }
 
+  startDate: Date = new Date("");
+  endDate: Date = new Date("");
+  priority: string = "";
+  status: string = "";
+
   showSpinner: boolean = false;
   userAdded: boolean = false;
   successMessage: string = '';
 
   showSpinner2: boolean = false;
 
-//Filtering
-applyFilters() {
-    this.showSpinner2 = true;
-      setTimeout(() => {
-        this.showSpinner2 = false;
-    }, 5000);
-}
-
+  //Filtering
+  resetFilters() {
+      this.showSpinner2 = true;
+        setTimeout(() => {
+          this.startDate = new Date(""); 
+          this.endDate = new Date("");
+          this.priority = "";
+          this.status = "";
+          this.showSpinner2 = false;
+      }, 5000);
+  }
 
   addTicket() {
     if (this.ticketForm.valid) {

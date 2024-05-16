@@ -28,16 +28,23 @@
                
                 <fieldset>
               
-                  <label for="email" >Name</label>
-                  <input type="text" id="name" name="user_name" formControlName="fullName" placeholder="Company Email">
+                  <label for="email" >First Name</label>
+                  <input type="text" id="name" name="user_name" formControlName="firstName" placeholder="First Name">
                   <div
-                  *ngIf="profile['fullName'].invalid && (profile['fullName'].dirty || profile['fullName'].touched)"
+                  *ngIf="profile['firstName'].invalid && (profile['firstName'].dirty || profile['firstName'].touched)"
                   class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
-                  <span *ngIf="profile['fullName'].errors?.['required']" style="color:#f98f8f;">Full name is required</span>
-                  <span *ngIf="profile['fullName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid Full name</span>
-
+                  <span *ngIf="profile['firstName'].errors?.['required']" style="color:#f98f8f;">First name is required</span>
+                  <span *ngIf="profile['firstName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid First name</span>
                    </div>
 
+                   <label for="email" >Last Name</label>
+                   <input type="text" id="name" name="last-name" formControlName="lastName" placeholder="Last Name">
+                   <div
+                   *ngIf="profile['lastName'].invalid && (profile['lastName'].dirty || profile['lastName'].touched)"
+                   class="alert alert-danger" style=" width: 800px; border-radius: 4px;" >
+                   <span *ngIf="profile['lastName'].errors?.['required']" style="color:#f98f8f;">Last name is required</span>
+                   <span *ngIf="profile['lastName'].errors?.['containsNumbers']" style="color:#f98f8f">Please enter valid last name</span>
+                    </div>
                    <label for="email" class="input-fields">Email</label>
                   <input type="email" id="mail" name="user_email" formControlName="email" placeholder="Company Email">
                   <div
@@ -61,7 +68,7 @@
                    *ngIf="profile['dob'].invalid && (profile['dob'].dirty || profile['dob'].touched)"
                    class="alert alert-danger">
                    <span *ngIf="profile['dob'].errors?.['required']" style="color:#f98f8f">Date of birth is required</span>
-                    </div>-->
+                    </div>
 
                   
                   <label for="dob" >Date Of Birth</label>
@@ -83,7 +90,7 @@
                    *ngIf="profile['country'].invalid && (profile['country'].dirty || profile['country'].touched)"
                    class="alert alert-danger">
                    <span *ngIf="profile['country'].errors?.['required']" style="color:#f98f8f">Country is required</span>
-                    </div>
+                    </div>-->
                 </fieldset>
 
                 <label for="country" class="input-fields"> Profile Image</label>

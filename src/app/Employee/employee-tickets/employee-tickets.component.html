@@ -41,42 +41,47 @@
               <li><button class="filterButton" (click)="toggleDropdown()">
                 <img src="../../../assets/images/filter.svg"  > 
                 Filter</button>
-
                 <div class="dropdown-content" [class.show]="showDropdown">
-                  <p><strong>FILTERS</strong></p>
+                  <div class="filters-header">
+                    <p><strong>FILTER</strong></p>
+                  </div>
+                  
                   <hr>
-                
-                 <select id="priority" name="" (click)="stopPropagation($event)">
+   
+                 <select id="priority" name="" [(ngModel)]="priority" >
                     <option value="" disabled selected>Choose Priority</option>
-                    <option value="Type 1">Type A</option>
-                    <option value="Type 2">Type B</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+
                   </select>
 
-                  <select id="status" name="" (click)="stopPropagation($event)">
+                  <select id="status" name="" [(ngModel)]="status">
                     <option value="" disabled selected>Choose status</option>
-                    <option value="Type 1">Type A</option>
-                    <option value="Type 2">Type B</option>
+                    <option value="open">Opened</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="closed">Closed</option>
+                    <option value="escalated">Escalated</option>
                   </select>
+                  
+                 <!-- Start Date Input -->
+                <div class="dateInput">
+                  <input matInput [(ngModel)]="startDate" [matDatepicker]="startDatePicker" placeholder="Choose start date">
+                  <mat-datepicker-toggle matSuffix [for]="startDatePicker" class="date-picker"></mat-datepicker-toggle>
+                  <mat-datepicker #startDatePicker panelClass="datepickerTwo"></mat-datepicker>
+                </div>
 
-                  <!-- Start Date Input -->
-                  <div class="dateInput">
-                    <input matInput [matDatepicker]="startDatePicker" placeholder="Choose start date">
-                    <mat-datepicker-toggle matSuffix [for]="startDatePicker" class="date-picker"></mat-datepicker-toggle>
-                    <mat-datepicker #startDatePicker panelClass="datepickerTwo"></mat-datepicker>
-                  </div>
-
-                  <!-- End Date Input -->
-                  <div class="dateInput">
-                    <input matInput [matDatepicker]="endDatePicker" placeholder="Choose end date">
-                    <mat-datepicker-toggle matSuffix [for]="endDatePicker" class="date-picker"></mat-datepicker-toggle>
-                    <mat-datepicker #endDatePicker panelClass="datepickerTwo"></mat-datepicker>
-                  </div>
-                  <button class="nextButton" (click)="applyFilters()">
-                    <span *ngIf="!showSpinner2">Apply</span>
-                    <div *ngIf="showSpinner2" class="filter-spinner"></div>
-                    </button>
-                  <button class="closeButton" (click)="closeWindow()">Close</button>
-
+                <!-- End Date Input -->
+                <div class="dateInput">
+                  <input matInput [(ngModel)]="endDate" [matDatepicker]="endDatePicker" placeholder="Choose end date">
+                  <mat-datepicker-toggle matSuffix [for]="endDatePicker" class="date-picker"></mat-datepicker-toggle>
+                  <mat-datepicker #endDatePicker panelClass="datepickerTwo"></mat-datepicker>
+                </div>
+                    <button class="nextButton" (click)="resetFilters()">
+                      <span *ngIf="!showSpinner2">Reset</span>
+                      <div *ngIf="showSpinner2" class="filter-spinner"></div>
+                      </button>
+                    <button class="closeButton" (click)="closeWindow()">Close</button>
                 </div>
               </li>
               </div>
