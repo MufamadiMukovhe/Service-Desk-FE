@@ -69,6 +69,34 @@ export class AdminSettingsComponent {
         return null;
       };
     }
+    
+    //Save Changes spinner
+    showSpinner: boolean = false;
+    successMessage: string = '';
+
+    saveChanges() {
+      this.showSpinner = true;
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.successMessage = 'Profile details changed successfully!'; 
+        setTimeout(() => {
+          this.successMessage = ''; 
+        }, 3000);
+      }, 5000);
+    }
+
+    changesPassword(){
+      this.showSpinner = true;
+  
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.successMessage = 'Password changed successfully!'; 
+        this.passwordForm.reset(); 
+        setTimeout(() => {
+          this.successMessage = ''; 
+        }, 3000);
+      }, 5000);
+    }
     onFileSelected(event: any) {
       const selectedFile = event.target.files[0];
       //console.log(selectedFile); Do something with the selected file

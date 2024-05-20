@@ -120,13 +120,13 @@ margin-left: 25px;
   background-color: #E94435;
     font-style: normal;
     border-radius: 4px;
-    width: 100px;
+    width: 300px;
     height: 40px;
     border: none;
-    margin-top: 25px;
+    margin-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-      margin-left: 25px;
+    margin-left: 25px;
 }
 
 .ticket-message {
@@ -571,13 +571,11 @@ margin-left: 45%;
 .slideInOut {
 transition: transform 0.5s ease;
 }
-
 .previous-next
 {
 margin-top: 20px;
 float: inline-end;
 }
-
 
 
 

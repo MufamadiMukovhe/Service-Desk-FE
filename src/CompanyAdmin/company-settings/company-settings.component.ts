@@ -93,24 +93,33 @@ validateNumber(control: AbstractControl): ValidationErrors | null {
       };
     }
 
-    //Save Changes spinner
-    showSpinner: boolean = false;
-    saveChanges() {
-      this.showSpinner = true;
-  
-      setTimeout(() => {
-        this.showSpinner = false;
-      }, 5000);
-    }
+   //Save Changes spinner
+   showSpinner: boolean = false;
+   successMessage: string = '';
 
-    //changePassword
-    changesPassword(){
-      this.showSpinner = true;
-  
-      setTimeout(() => {
-        this.showSpinner = false;
-      }, 5000);
-    }
+   saveChanges() {
+     this.showSpinner = true;
+     setTimeout(() => {
+       this.showSpinner = false;
+       this.successMessage = 'Profile details changed successfully!'; 
+       setTimeout(() => {
+         this.successMessage = ''; 
+       }, 3000);
+     }, 5000);
+   }
+
+   changesPassword(){
+     this.showSpinner = true;
+ 
+     setTimeout(() => {
+       this.showSpinner = false;
+       this.successMessage = 'Password changed successfully!'; 
+       this.passwordForm.reset(); 
+       setTimeout(() => {
+         this.successMessage = ''; 
+       }, 3000);
+     }, 5000);
+   }
 
     //Add Agent/Employee
     addUsers() {
